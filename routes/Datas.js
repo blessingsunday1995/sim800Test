@@ -42,9 +42,9 @@ router.delete("/:id", async(req,res)=>{
 router.get("/find/:id", async(req,res)=>{
     try{
        const data= await User.findById(req.params.id)
-
+ const {_id,...others} = data._doc
    
-        res.json(data)
+        res.json(others) 
     }catch(err){
         res.json(err)
     }
